@@ -55,12 +55,14 @@ local function CreateOverhead(Player, Result)
 end
 
 local function HandlePlayer(Player)
-	local R = GetGender(Player)
-    CreateOverhead(Player, R)
-
-    Player.CharacterAdded:Connect(function()
-        CreateOverhead(Player, R)
-    end)
+	task.spawn(function()
+		local R = GetGender(Player)
+	    CreateOverhead(Player, R)
+	
+	    Player.CharacterAdded:Connect(function()
+	        CreateOverhead(Player, R)
+	    end)
+	end)
 end
 
 for _, Player in Players:GetPlayers() do
