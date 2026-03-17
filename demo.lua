@@ -54,20 +54,17 @@ local function CreateOverhead(Player, Result)
     Label.Parent = Frame
 end
 
-for _, Player in Players:GetPlayers() do
-    local R = GetGender(Player)
-    if R then
-        if R.Method.Name == "Avatar Item Check" then
-            print(Player.Name, "| Item:", R.Method.Item, "| Keyword:", R.Method.Value, "| Score: M(".. R.Method.Score.Male ..")  F(".. R.Method.Score.Female ..")", "| Gender:", R.Gender)
-        elseif R.Method.Name == "Display Name Check" then
-            warn(Player.DisplayName, "| Keyword:", R.Method.Value, "| Gender:", R.Gender)
-        elseif R.Method.Name == "Name Check" then
-            warn(Player.DisplayName, "| Keyword:", R.Method.Value, "| Gender:", R.Gender)
-        end
-    end
+local function HandlePlayer(Player)
+	local R = GetGender(Player)
     CreateOverhead(Player, R)
 
     Player.CharacterAdded:Connect(function()
         CreateOverhead(Player, R)
     end)
 end
+
+for _, Player in Players:GetPlayers() do
+    HandlePlayer(Player)
+end
+
+Players.PlayerAdded:Connect(HandlePlayer)
