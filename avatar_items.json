@@ -1,7 +1,7 @@
 {
   "Female": [
     "skirt", "miniskirt", "maxiskirt", "pleatedskirt", "skirts",
-    "stockings", "thighhighs", "pantyhose", "fishnets", "fishnet",
+    "stockings", "thighhighs", "fishnets", "fishnet",
     "dress", "gown", "sundress", "ballgown", "halter", "pinafore", "babydoll",
     "girl", "girly", "girlish",
     "gyaru", "gal", "kogal",
@@ -12,7 +12,7 @@
     "bikini", "swimsuit", "monokini",
     "chemise", "negligee",
     "tiara", "hairbow", "hairclip", "hairpin", "scrunchie", "barrette",
-    "heels", "stiletto", "wedges", "pumps", "kitten",
+    "heels", "stiletto", "wedges", "pumps",
     "ribbon", "lace", "ruffle", "frill", "frilly", "tulle",
     "leggings", "tights",
     "handbag", "purse", "clutch",
@@ -20,7 +20,6 @@
     "princess", "queen", "empress", "duchess", "maiden", "goddess",
     "maid", "nurse", "witch",
     "kawaii", "ulzzang",
-    "idol", "magical", "enchantress",
     "pinup", "burlesque", "geisha",
     "crop", "camisole", "tankini", "harajaku", "cowgirl"
   ],
