@@ -16,15 +16,29 @@ local function CheckItems(AppearanceInfo)
     local Score = { Male = 0, Female = 0 }
     local Hits = { Male = {}, Female = {} }
 
+    local function MatchesKeyword(Words, Keyword)
+        local KeyWords = Keyword:split(" ")
+        local KeyLen = #KeyWords
+        for i = 1, #Words - KeyLen + 1 do
+            local Match = true
+            for j = 1, KeyLen do
+                if Words[i + j - 1] ~= KeyWords[j] then
+                    Match = false
+                    break
+                end
+            end
+            if Match then return true end
+        end
+        return false
+    end
+
     for _, Asset in AppearanceInfo.assets do
         local Words = Asset.name:lower():split(" ")
-        for _, Word in Words do
-            for _, Gender in { "Male", "Female" } do
-                for _, Keyword in Items[Gender] do
-                    if Word == Keyword then
-                        Score[Gender] += 1
-                        table.insert(Hits[Gender], { Keyword = Keyword, Item = Asset.name })
-                    end
+        for _, Gender in { "Male", "Female" } do
+            for _, Keyword in Items[Gender] do
+                if MatchesKeyword(Words, Keyword) then
+                    Score[Gender] += 1
+                    table.insert(Hits[Gender], { Keyword = Keyword, Item = Asset.name })
                 end
             end
         end
