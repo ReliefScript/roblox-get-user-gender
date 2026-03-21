@@ -80,7 +80,6 @@ local function CreateOverhead(Player, GenderResult, RaceResult)
     Layout.Padding = UDim.new(0.03, 0)
     Layout.Parent = Frame
 
-    -- Divider helper
     local function AddDivider()
         local Divider = Instance.new("Frame")
         Divider.Size = UDim2.new(0.85, 0, 0, 1)
@@ -89,7 +88,6 @@ local function CreateOverhead(Player, GenderResult, RaceResult)
         Divider.Parent = Frame
     end
 
-    -- Gender row
     local GenderLabel = Instance.new("TextLabel")
     GenderLabel.Size = UDim2.new(1, 0, 0.28, 0)
     GenderLabel.BackgroundTransparency = 1
@@ -111,7 +109,6 @@ local function CreateOverhead(Player, GenderResult, RaceResult)
 
     AddDivider()
 
-    -- Race row
     local RaceLabel = Instance.new("TextLabel")
     RaceLabel.Size = UDim2.new(1, 0, 0.28, 0)
     RaceLabel.BackgroundTransparency = 1
