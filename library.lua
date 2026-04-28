@@ -152,13 +152,14 @@ function GetInfo:GetAvatarValue(Target)
 	local Assets = {}
 
 	for _, Asset in AppearanceInfo.assets do
+		local Attempts = 0
 		local Ok, Info
 		repeat
 			Ok, Info = pcall(function()
 				return MarketplaceService:GetProductInfo(Asset.id)
 			end)
-			if not Ok then task.wait(0.5) end
-		until Ok and Info
+			if not Ok then task.wait(0.5) Attempts += 1 end
+		until (Ok and Info) or (Attempts >= 10)
 
 		local Price = (Info.IsForSale and Info.PriceInRobux) or 0
 		Total += Price
